@@ -24,7 +24,7 @@ build: [
     "-camlp5dir" "%{lib}%/camlp5"
     "-coqide" "no"
   ]
-  [make "-j%{jobs}%"]
+  [make "-j%{jobs}%" "VERBOSE=1"]
   [make "-j%{jobs}%" "byte"]
 ]
 install: [
