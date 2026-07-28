@@ -1,6 +1,6 @@
-opam-version: "1.2"
-maintainer: "opensource@janestreet.com"
-authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+authors: ["Jane Street Group, LLC"]
 homepage: "https://github.com/janestreet/ocaml-compiler-libs"
 bug-reports: "https://github.com/janestreet/ocaml-compiler-libs/issues"
 dev-repo: "git+https://github.com/janestreet/ocaml-compiler-libs.git"
@@ -9,6 +9,18 @@ build: [
   ["jbuilder" "build" "-p" name "-j" jobs]
 ]
 depends: [
-  "jbuilder" {build & >= "1.0+beta12"}
+  "ocaml" {>= "4.04.1" & < "5.2.0"}
+  "jbuilder" {>= "1.0+beta12"}
 ]
-available: [ ocaml-version >= "4.04.1" ]
+synopsis: "OCaml compiler libraries repackaged"
+description: """
+This packages exposes the OCaml compiler libraries repackages under
+the toplevel names Ocaml_common, Ocaml_bytecomp, ..."""
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/v0.10/files/ocaml-compiler-libs-v0.10.0.tar.gz"
+  checksum: [
+    "sha256=422d4e3f0e302935ddf868e7f6d5a431ee141043ba443ef0a081ef61ab506b1d"
+    "md5=e94f23c3478cb42dc3472617ea86c800"
+  ]
+}

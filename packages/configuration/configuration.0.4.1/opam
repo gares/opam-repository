@@ -1,11 +1,10 @@
-opam-version: "1.2"
-version: "0.4.1"
+opam-version: "2.0"
 maintainer: "michipili@gmail.com"
 authors: "Michael Grünewald"
 license: "CeCILL-B"
 homepage: "https://github.com/michipili/configuration"
 bug-reports: "https://github.com/michipili/configuration/issues"
-dev-repo: "https://github.com/michipili/configuration.git"
+dev-repo: "git+https://github.com/michipili/configuration.git"
 tags: [
   "configuration"
   "system"
@@ -21,12 +20,21 @@ remove: [
   ["ocamlfind" "remove" "configuration"]
   ["rm" "-rf" "%{share}%/doc/configuration"]
 ]
-available: [
-  ocaml-version >= "4.02"
-]
 depends: [
+  "ocaml" {>= "4.02"}
   "broken" {>= "0.4.1"}
   "bsdowl" {>= "3.0.0"}
   "conf-bmake"
   "ocamlfind"
 ]
+synopsis: "Analyse configuration files"
+description: "WWW: https://github.com/michipili/configuration"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/michipili/configuration/releases/download/v0.4.1/configuration-0.4.1.tar.xz"
+  checksum: [
+    "sha256=cbef3722605e62329f00e53e71308c477e9230bb46240e75715890439f6c49e6"
+    "md5=02e0db2faaaacc47003c973bd54ccb93"
+  ]
+}

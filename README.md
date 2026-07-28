@@ -1,15 +1,13 @@
-This repository contains OCaml package and compiler metadata and is
-used by the default installation of [opam](https://opam.ocaml.org/).
+This repository contains OCaml package and compiler metadata and is used by the default installation of [opam](https://opam.ocaml.org/).
+
+The state of the package ecosystem can be explored using opam-health-check<sup>[[1]]</sup>: http://check.ci.ocaml.org/
 
 ## How to Contribute
 
 Contributions are welcome !
 
 The [CONTRIBUTING.md](CONTRIBUTING.md) document has general guidelines
-on how to contribute.
-
-If you would like to add a new package consult
-[these instructions](https://opam.ocaml.org/doc/Packaging.html#Publishing).
+on how to contribute and add new packages.
 
 ## License
 
@@ -22,3 +20,5 @@ technically a "Database" -- which is subject to a "sui generis" right
 in Europe -- we would like to stress that even the *collection* of
 the metadata contained in opam-repository is licensed under CC0 and
 thus the simple act of cloning opam-repository is perfectly legal.
+
+[1]: https://github.com/ocurrent/opam-health-check

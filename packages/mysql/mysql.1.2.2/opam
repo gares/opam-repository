@@ -1,28 +1,27 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "ygrek@autistici.org"
 authors: [
   "Christian Lindig <lindig@eecs.harvard.edu>"
   "Shawn Wagner <shawnw@speakeasy.org>"
   "ygrek <ygrek@autistici.org>"
 ]
-homepage: "http://ygrek.org.ua/p/ocaml-mysql/"
-doc: "http://ygrek.org.ua/p/ocaml-mysql/api/index.html"
-dev-repo: "git://github.com/ygrek/ocaml-mysql.git"
+homepage: "https://ygrek.org/p/ocaml-mysql/"
+doc: "https://ygrek.org/p/ocaml-mysql/api/index.html"
+dev-repo: "git+https://github.com/ygrek/ocaml-mysql.git"
 bug-reports: "https://github.com/ygrek/ocaml-mysql/issues"
 build: [
   ["./configure" "--prefix" "%{prefix}%"]
   [make]
-]
-build-doc: [
-  [make "htdoc"]
+  [make "htdoc"] {with-doc}
 ]
 install: [make "install"]
 remove: [
   ["ocamlfind" "remove" "mysql"]
 ]
 depends: [
+  "ocaml"
   "ocamlfind" {build}
-#  ("conf-mysql" | "conf-mariadb")
+  "conf-mysql"
 ]
 post-messages: [
   "This package requires mysql client library installed. Due to abundance of mysql forks with different names and
@@ -34,3 +33,15 @@ post-messages: [
   See also discussion in https://github.com/ocaml/opam-repository/pull/10312
 " {failure}
 ]
+synopsis:
+  "Bindings to C client library for interacting with Mysql/MariaDB/Percona databases"
+flags: light-uninstall
+url {
+  src: "https://ygrek.org/p/release/ocaml-mysql/ocaml-mysql-1.2.2.tar.gz"
+  checksum: [
+    "sha256=fac7873c53ebe8d08c35701c77780d3fdae3b71d536238b6630932dd44e0987d"
+    "md5=8f1c38105e3d16e07920cc79d26a5027"
+  ]
+  mirrors:
+    "https://github.com/ygrek/ocaml-mysql/releases/download/v1.2.2/ocaml-mysql-1.2.2.tar.gz"
+}

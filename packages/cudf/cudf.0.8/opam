@@ -1,17 +1,15 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "roberto@dicosmo.org"
 homepage: "http://www.mancoosi.org/cudf/"
 authors: ["Roberto di Cosmo <roberto@dicosmo.org>" "Stefano Zacchiroli" "Pietro Abate"]
-bug-reports: "https://gforge.inria.fr/tracker/?atid=13811&group_id=4385&func=browse"
-dev-repo: "https://scm.gforge.inria.fr/anonscm/git/cudf/cudf.git"
-build: [make "all" "opt"]
-remove: [
- [make "uninstall" "DESTDIR=%{prefix}%" "OCAMLLIBDIR=lib" "BINDIR=bin" "LIBDIR=lib" "INCDIR=include"]
-]
+bug-reports: "https://gitlab.com/irill/cudf/-/issues"
+dev-repo: "git+https://gitlab.com/irill/cudf.git"
+build: [make "all" "opt" "DOC="]
 depends: [
+  "ocaml" {< "5.0"}
   "camlp4"
-  "conf-perl" {build}
   ("extlib" | "extlib-compat")
+  "ocamlfind" {build}
   "ocamlbuild" {build}
 ]
 install: [
@@ -23,3 +21,15 @@ install: [
   "LIBDIR=lib"
   "INCDIR=include"
 ]
+synopsis: "CUDF library (part of the Mancoosi tools)"
+description: """
+CUDF (for Common Upgradeability Description Format) is a format for
+describing upgrade scenarios in package-based Free and Open Source
+Software distribution."""
+url {
+  src: "https://gitlab.com/irill/cudf/-/archive/v0.8/cudf-v0.8.tar.gz"
+  checksum: [
+    "sha256=7810b4ac51a97647ba488b91898b98b3e209980f032bffb8e3149afad0b4cae1"
+    "md5=3baa29de4bf43b708376c079fa1c90fc"
+  ]
+}

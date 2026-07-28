@@ -1,11 +1,9 @@
-opam-version: "1.2"
-name: "wamp"
-version: "1.0"
+opam-version: "2.0"
 authors: "Vincent Bernardoff <vb@luminar.eu.org>"
 maintainer: "Vincent Bernardoff <vb@luminar.eu.org>"
 homepage: "https://github.com/vbmithr/ocaml-wamp"
 bug-reports: "https://github.com/vbmithr/ocaml-wamp/issues"
-dev-repo: "git://github.com/vbmithr/ocaml-wamp"
+dev-repo: "git+https://github.com/vbmithr/ocaml-wamp"
 
 tags: [
   "org:mirage"
@@ -13,24 +11,34 @@ tags: [
 ]
 
 depends: [
+  "ocaml" {>= "4.01.0"}
   "ocamlfind" {build}
   "ocamlbuild" {build}
   "topkg" {build}
-  "ppx_sexp_conv" {build}
+  "ppx_sexp_conv"
   "result"
-  "uri"
+  "uri" {< "2.0.0"}
   "ppx_deriving"
   "sexplib"
 ]
-
 depopts: [
   "yojson"
   "msgpck"
 ]
+conflicts: [
+  "msgpck" {> "1.0"}
+]
 
-available: [ ocaml-version >= "4.01.0"]
 build: [[ "ocaml" "pkg/pkg.ml" "build"
           "--pinned" "%{pinned}%"
           "--with-yojson" "%{yojson:installed}%"
           "--with-msgpck" "%{msgpck:installed}%"
 ]]
+synopsis: "The Web Application Messaging Protocol"
+url {
+  src: "https://github.com/vbmithr/ocaml-wamp/archive/1.0.tar.gz"
+  checksum: [
+    "sha256=7d2a9028d94065cbb5a776dcbe23b5c9262cb2e18f6b9f02a0dd21eb1c319a44"
+    "md5=874ab3afd5ef1b0b0b2902c987802537"
+  ]
+}
